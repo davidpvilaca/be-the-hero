@@ -1,0 +1,67 @@
+{
+  "name": "be-the-hero-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "ts-node-dev src/index.ts",
+    "start:prod": "node ./dist/index.js",
+    "build": "rimraf dist && tsc",
+    "lint": "tslint -p tsconfig.json -c tslint.json"
+  },
+  "author": "David Vilaça <vilacapdavid@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/moment-timezone": "^0.5.13",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.3",
+    "moment-timezone": "^0.5.28"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/body-parser": "^1.19.0",
+    "@types/cors": "^2.8.6",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.3",
+    "@types/helmet": "^0.0.45",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.3",
+    "@types/supertest": "^2.0.8",
+    "coveralls": "^3.0.11",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8",
+    "rimraf": "^3.0.2",
+    "supertest": "^4.0.2",
+    "ts-jest": "^25.2.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tslint": "^6.1.0",
+    "tslint-config-standard": "^9.0.0",
+    "typescript": "^3.8.3"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "tslint -c tslint.json "
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "engines": {
+    "node": "^12.10.0",
+    "yarn": "^1.15.0"
+  },
+  "resolutions": {
+    "minimist": "^1.2.3",
+    "decompress": "4.2.0",
+    "tslint-config-standard/tslint-eslint-rules/tslint": "^5.0.0"
+  }
+}
