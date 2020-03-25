@@ -14,12 +14,15 @@
   "license": "MIT",
   "dependencies": {
     "@types/moment-timezone": "^0.5.13",
-    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.21.3",
-    "moment-timezone": "^0.5.28"
+    "http-errors": "^1.7.3",
+    "knex": "^0.20.13",
+    "moment-timezone": "^0.5.28",
+    "ramda": "^0.27.0",
+    "sqlite3": "^4.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
@@ -29,8 +32,12 @@
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.3",
     "@types/helmet": "^0.0.45",
+    "@types/http-errors": "^1.6.3",
     "@types/jest": "^25.1.4",
+    "@types/knex": "^0.16.1",
     "@types/node": "^13.9.3",
+    "@types/ramda": "^0.27.0",
+    "@types/sqlite3": "^3.1.6",
     "@types/supertest": "^2.0.8",
     "coveralls": "^3.0.11",
     "husky": "^4.2.3",

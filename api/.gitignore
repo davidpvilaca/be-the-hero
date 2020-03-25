@@ -33,3 +33,7 @@ coverage/
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# Project #
+###########
+src/db/db.sqlite

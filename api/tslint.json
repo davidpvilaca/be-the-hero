@@ -27,6 +27,10 @@
     "variable-name": [true, "ban-keywords", "check-format"],
     "handle-callback-err": false,
     "no-console": [true, "debug", "info", "assert", "count", "table"],
-    "no-floating-promises": true
+    "no-floating-promises": true,
+    "await-promise": false
+  },
+  "linterOptions": {
+    "exclude": ["src/db/migrations", "src/db/migrations/*.ts"]
   }
 }
