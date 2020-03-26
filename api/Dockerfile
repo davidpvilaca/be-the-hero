@@ -11,6 +11,10 @@ RUN yarn install --dev
 
 RUN yarn build
 
+RUN yarn knex:ts migrate:latest
+
+COPY ./src/db/db.sqlite ./dist/db/db.sqlite
+
 ################################################################
 # Only install production dependencies
 ################################################################
@@ -38,6 +42,6 @@ COPY --from=builder /app/service/package.json .
 COPY --from=builder /app/service/dist ./dist
 COPY --from=installer /app/service/node_modules ./node_modules
 
-EXPOSE 3000
+EXPOSE 3333
 
 CMD ["yarn", "start:prod"]
