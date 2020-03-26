@@ -8,7 +8,8 @@
     "start": "ts-node-dev src/index.ts",
     "start:prod": "node ./dist/index.js",
     "build": "rimraf dist && tsc",
-    "lint": "tslint -p tsconfig.json -c tslint.json"
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "knex:ts": "knex --knexfile src/knexfile.ts"
   },
   "author": "David Vilaça <vilacapdavid@gmail.com>",
   "license": "MIT",

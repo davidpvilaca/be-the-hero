@@ -1,10 +1,10 @@
 const development = {
   client: 'sqlite3',
   connection: {
-    filename: './src/db/db.sqlite'
+    filename: './db/db.sqlite'
   },
   migrations: {
-    directory: './src/db/migrations'
+    directory: './db/migrations'
   },
   useNullAsDefault: true
 }
