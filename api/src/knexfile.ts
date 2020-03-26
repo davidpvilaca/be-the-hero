@@ -1,7 +1,9 @@
+import * as path from 'path'
+
 const development = {
   client: 'sqlite3',
   connection: {
-    filename: './db/db.sqlite'
+    filename: path.resolve(__dirname, 'db/db.sqlite')
   },
   migrations: {
     directory: './db/migrations'
