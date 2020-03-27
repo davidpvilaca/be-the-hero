@@ -11,6 +11,17 @@ const development = {
   useNullAsDefault: true
 }
 
+const test = {
+  client: 'sqlite3',
+  connection: {
+    filename: path.resolve(__dirname, 'db/test.sqlite')
+  },
+  migrations: {
+    directory: './src/db/migrations'
+  },
+  useNullAsDefault: true
+}
+
 const staging = {
   client: 'postgresql',
   connection: {
@@ -43,4 +54,4 @@ const production = {
   }
 }
 
-export { development, staging, production }
+export { development, staging, production, test }
