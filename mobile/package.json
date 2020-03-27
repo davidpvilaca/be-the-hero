@@ -40,5 +40,9 @@
     "tslint-config-standard": "^9.0.0",
     "typescript": "~3.6.3"
   },
-  "private": true
+  "private": true,
+  "engines": {
+    "node": "^12.10.0",
+    "yarn": "^1.15.0"
+  }
 }
