@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { Forbidden, Unauthorized } from 'http-errors'
+import { BadRequest, Forbidden, Unauthorized } from 'http-errors'
 import * as R from 'ramda'
 import { connection } from '../db'
 import { IIncident, IIncidentQueryData, IOng } from '../interfaces'
@@ -66,20 +66,24 @@ const deleteIncident = async (
     return next(new Unauthorized())
   }
 
-  const incident = await connection('incidents')
-    .where('id', id)
-    .select('ong_id')
-    .first()
+  try {
+    const incident = await connection('incidents')
+      .where('id', id)
+      .select('ong_id')
+      .first()
 
-  if (incident.ong_id !== ongId) {
-    return next(new Forbidden())
+    if (incident.ong_id !== ongId) {
+      return next(new Forbidden())
+    }
+
+    await connection('incidents')
+      .where('id', id)
+      .delete()
+
+    return res.status(204).send()
+  } catch (e) {
+    return next(new BadRequest('ID não encontrado!'))
   }
-
-  await connection('incidents')
-    .where('id', id)
-    .delete()
-
-  return res.status(204).send()
 }
 
 export { create, list, deleteIncident }
