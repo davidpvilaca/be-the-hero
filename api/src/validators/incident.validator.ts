@@ -1,4 +1,5 @@
-import { celebrate, Joi, Segments } from 'celebrate'
+import * as Joi from '@hapi/joi'
+import { celebrate, Segments } from 'celebrate'
 
 const list = celebrate({
   [Segments.QUERY]: Joi.object().keys({
