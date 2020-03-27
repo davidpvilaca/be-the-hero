@@ -1,19 +1,20 @@
 import * as express from 'express'
 import {
+  generalController,
   incidentController,
   ongController,
   profileController,
-  sessionController,
-  utilsController
+  sessionController
 } from './controllers'
 import { IncidentValidator, OngValidator, SessionValidator } from './validators'
 
 const routes = express.Router()
 
 /**
- * Utils routes
+ * General routes
  */
-routes.get('/ping', utilsController.ping)
+routes.get('/ping', generalController.ping)
+routes.get('/500', generalController.e500)
 
 /**
  * Session
