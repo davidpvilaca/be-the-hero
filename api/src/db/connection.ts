@@ -2,8 +2,6 @@ import * as knex from 'knex'
 import { environments } from '../config'
 import * as knexfile from '../knexfile'
 
-const configKnex = environments.isTest ? knexfile.test : knexfile.development
-
-const connection = knex(configKnex)
+const connection = knex(knexfile[environments.NODE_ENV])
 
 export default connection
