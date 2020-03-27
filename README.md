@@ -36,7 +36,6 @@ Mais detalhadamente podemos citar:
 - [TypeScript](https://www.typescriptlang.org/)
 - [Express](https://expressjs.com/)
 - [Mongoose](https://mongoosejs.com/)
-- [Socket.io](https://socket.io/)
 - [Expo](https://expo.io/)
 
 ## **Projeto**
@@ -63,9 +62,11 @@ Para rodar a api é necessário, após clonar este repositório, entrar na pasta
 
 <small>Para produção deverá realizar o build antes: `yarn build`. E configurar um banco de produção para não utilizar o SQLite.</small>
 
+Para rodar os testes unitários e de integração execute: `yarn test`.
+
 ### Web
 
-Esta aplicação foi a única utilizando JavaScript puro ao invés de TypeScript. Entre na pasta `web` no seu terminal e siga os seguintes passos:
+Esta aplicação foi a única utilizando JavaScript puro ao invés de TypeScript e toda estilização foi feita utilizando o [styled-components](https://styled-components.com/). Entre na pasta `web` no seu terminal e siga os seguintes passos:
 
 1. Instalar as dependências: `yarn install`
 2. Inicie a aplicação em desenvolvimento: `yarn start`
