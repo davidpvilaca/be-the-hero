@@ -2,7 +2,7 @@ import { errors } from 'celebrate'
 import * as cors from 'cors'
 import * as express from 'express'
 import * as helmet from 'helmet'
-import { InternalServerError, NotFound } from 'http-errors'
+import { NotFound } from 'http-errors'
 import routes from './routes'
 
 const app = express()
@@ -43,12 +43,7 @@ app.use(
     _: express.Request,
     res: express.Response,
     __: express.NextFunction
-  ) => {
-    if (err) {
-      return res.status(err.statusCode || 500).json(err)
-    }
-    return res.status(500).json(new InternalServerError())
-  }
+  ) => res.status(err.statusCode || 500).json(err)
 )
 
 export default app
