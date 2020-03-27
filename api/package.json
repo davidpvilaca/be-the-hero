@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
     "start": "ts-node-dev src/index.ts",
     "start:prod": "node ./dist/index.js",
     "build": "rimraf dist && tsc",
