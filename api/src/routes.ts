@@ -6,6 +6,8 @@ import {
   sessionController,
   utilsController
 } from './controllers'
+import { IncidentValidator, OngValidator, SessionValidator } from './validators'
+
 const routes = express.Router()
 
 /**
@@ -16,20 +18,24 @@ routes.get('/ping', utilsController.ping)
 /**
  * Session
  */
-routes.post('/sessions', sessionController.create)
+routes.post('/sessions', SessionValidator.create, sessionController.create)
 
 /**
  * ONGS
  */
 routes.get('/ongs', ongController.list)
-routes.post('/ongs', ongController.create)
+routes.post('/ongs', OngValidator.create, ongController.create)
 
 /**
  * Incidents
  */
-routes.get('/incidents', incidentController.list)
-routes.post('/incidents', incidentController.create)
-routes.delete('/incidents/:id', incidentController.deleteIncident)
+routes.get('/incidents', IncidentValidator.list, incidentController.list)
+routes.post('/incidents', IncidentValidator.create, incidentController.create)
+routes.delete(
+  '/incidents/:id',
+  IncidentValidator.deleteIncident,
+  incidentController.deleteIncident
+)
 
 /**
  * Profile

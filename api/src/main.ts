@@ -1,3 +1,4 @@
+import { errors } from 'celebrate'
 import * as cors from 'cors'
 import * as express from 'express'
 import * as helmet from 'helmet'
@@ -30,6 +31,7 @@ app.use(routes)
 /**
  * Error handlers
  */
+app.use(errors())
 app.use(
   (_: express.Request, __: express.Response, next: express.NextFunction) => {
     next(new NotFound())
