@@ -1,7 +1,8 @@
 import * as request from 'supertest'
 import connection from '../src/db/connection'
+import { IIncident, IOng } from '../src/interfaces'
 import app from '../src/main'
-import { IIncident, IOng } from './../src/interfaces'
+import { generateUniqueId } from '../src/utils'
 
 describe('INCIDENT', () => {
   const INCIDENT1 = {
@@ -9,22 +10,18 @@ describe('INCIDENT', () => {
     description: 'Detalhe do caso',
     value: 120
   }
-  let ONG: IOng
+  const ONG: IOng = {
+    id: generateUniqueId(),
+    name: 'APAD',
+    email: 'apad@apad.com',
+    whatsapp: '27999999999',
+    city: 'Rio do Sul',
+    uf: 'SC'
+  }
 
   beforeEach(async () => {
     await connection.migrate.latest()
-
-    const { body } = await request(app)
-      .post('/ongs')
-      .send({
-        name: 'APAD',
-        email: 'apad@apad.com',
-        whatsapp: '27999999999',
-        city: 'Rio do Sul',
-        uf: 'SC'
-      })
-
-    ONG = body
+    await connection('ongs').insert(ONG)
   })
 
   afterEach(async () => {

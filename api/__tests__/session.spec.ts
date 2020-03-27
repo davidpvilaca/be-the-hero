@@ -1,25 +1,22 @@
 import * as request from 'supertest'
 import connection from '../src/db/connection'
 import app from '../src/main'
+import { generateUniqueId } from '../src/utils'
 import { IOng } from './../src/interfaces'
 
 describe('SESSION', () => {
-  let ONG: IOng
+  const ONG: IOng = {
+    id: generateUniqueId(),
+    name: 'APAD',
+    email: 'apad@apad.com',
+    whatsapp: '27999999999',
+    city: 'Rio do Sul',
+    uf: 'SC'
+  }
 
   beforeEach(async () => {
     await connection.migrate.latest()
-    const apad = {
-      name: 'APAD',
-      email: 'apad@apad.com',
-      whatsapp: '27999999999',
-      city: 'Rio do Sul',
-      uf: 'SC'
-    }
-    const { body } = await request(app)
-      .post('/ongs')
-      .send(apad)
-
-    ONG = { ...apad, ...body }
+    await connection('ongs').insert(ONG)
   })
 
   afterEach(async () => {
