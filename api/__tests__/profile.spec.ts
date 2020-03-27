@@ -27,12 +27,18 @@ describe('PROFILE', () => {
     await connection.destroy()
   })
 
-  it('should be able to create a session', async () => {
+  it('should be able to list an incidents from session', async () => {
     const res = await request(app)
       .get('/profile')
       .set('Authorization', ONG.id)
     expect(res.status).toBe(200)
     expect(Array.isArray(res.body)).toBe(true)
     expect(res.body).toHaveLength(0)
+  })
+
+  it('should not be able to list an incidents from session with invalid authorization', async () => {
+    const res = await request(app).get('/profile')
+    expect(res.status).toBe(401)
+    expect(res.body).toHaveProperty('message')
   })
 })
