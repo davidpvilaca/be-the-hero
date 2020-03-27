@@ -34,4 +34,20 @@ describe('SESSION', () => {
     expect(res.body).toMatchObject({ id: ONG.id, name: ONG.name })
     expect(res.status).toBe(200)
   })
+
+  it('should not be able to create a session with invalid ong id', async () => {
+    const res = await request(app)
+      .post('/sessions')
+      .send({ id: generateUniqueId() })
+    expect(res.body).toHaveProperty('message')
+    expect(res.status).toBe(400)
+  })
+
+  it('should not be able to create a session without ong id', async () => {
+    const res = await request(app)
+      .post('/sessions')
+      .send()
+    expect(res.body).toHaveProperty('message')
+    expect(res.status).toBe(400)
+  })
 })
