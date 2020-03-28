@@ -27,5 +27,6 @@
     "skipDefaultLibCheck": true,
     "noLib": false,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": ["__tests__/**/*.spec.ts", "src/**/*.spec.ts"]
 }
