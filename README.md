@@ -16,6 +16,11 @@
 
 <br>
 
+[![Coverage Status](https://coveralls.io/repos/github/davidpvilaca/be-the-hero/badge.svg?branch=master)](https://coveralls.io/github/davidpvilaca/be-the-hero?branch=master)
+[![LICENSE](https://img.shields.io/github/license/davidpvilaca/be-the-hero)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/davidpvilaca/be-the-hero)](https://github.com/davidpvilaca/be-the-hero/commits)
+[![NodeJS Version](https://img.shields.io/static/v1?label=NodeJS&message=12.16.1&color=green)](#)
+
 <p align="center">
   <img alt="Frontend" src=".github/web_screen_1.png" width="100%">
 </p>
