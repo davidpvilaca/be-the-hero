@@ -23,7 +23,7 @@
     "helmet": "^3.21.3",
     "http-errors": "^1.7.3",
     "knex": "^0.20.13",
-    "moment-timezone": "^0.5.28",
+    "moment-timezone": "^0.5.35",
     "ramda": "^0.27.0",
     "sqlite3": "^4.1.1"
   },
