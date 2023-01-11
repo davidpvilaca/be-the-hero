@@ -22,7 +22,7 @@
     "express": "^4.17.1",
     "helmet": "^3.21.3",
     "http-errors": "^1.7.3",
-    "knex": "^0.20.13",
+    "knex": "^2.4.0",
     "moment-timezone": "^0.5.28",
     "ramda": "^0.27.0",
     "sqlite3": "^4.1.1"
